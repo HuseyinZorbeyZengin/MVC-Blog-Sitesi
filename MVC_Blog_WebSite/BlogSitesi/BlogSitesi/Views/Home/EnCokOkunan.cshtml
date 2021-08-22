@@ -1,0 +1,23 @@
+﻿@model IEnumerable<BlogSitesi.Models.Makale>
+
+<h6 style="font-weight:bold;">En Çok Okunan Makaleler</h6>
+@foreach (var item in Model)
+{
+    <div class="card mb-3" style="max-width: 355px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <a href="/Home/Detay/@item.ID"><img src="/Content/img/@item.Resim" alt="..." width="125"></a>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <p class="card-text" style="font-size:14px;">@item.Baslik</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><i class="bi bi-clock-fill" style="font-size:15px;"></i> @item.YayinTarihi.ToString("yyyy-MM-dd")  <i class="bi bi-eye-fill"></i> @item.GoruntulenmeSayisi</small>
+            </div>
+        </div>
+    </div>
+
+}
+

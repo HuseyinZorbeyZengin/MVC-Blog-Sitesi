@@ -1,0 +1,40 @@
+﻿@model PagedList<BlogSitesi.Models.MakaleModel>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-8">
+            <!--MAKALE LİSTESİ-->
+            @foreach (var item in Model)
+            {
+                <div class="card-group">
+                    <div class="card" style="background-color:#feffe1;">
+                        <img src="/Content/img/@item.Resim" class="card-img-top" alt="..." width="300">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Baslik</h5>
+                            <p class="card-text">@item.Aciklama</p>
+                            <a href="/Home/Detay/@item.ID" class="btn btn-success">Devamını oku...</a>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"><i class="bi bi-person-fill"></i> @item.KullaniciAdi  <i class="bi bi-clock-fill" style="font-size:15px;"> @item.YayinTarihi.ToString("dd-MM-yyyy")  <i class="bi bi-eye-fill"></i> @item.GoruntulenmeSayisi Görüntülenme  <i class="bi bi-chat-dots-fill"> @item.Yorum.Count Yorum</i></i></small>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
+            @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }))
+        </div>
+        <div class="col-md-4">
+            <!--KONU LİSTESİ-->
+            @Html.Action("KategoriListesi", "Kategori")
+            <br />
+            @Html.Action("EnCokOkunan", "Home")
+        </div>
+    </div>
+</div>
+

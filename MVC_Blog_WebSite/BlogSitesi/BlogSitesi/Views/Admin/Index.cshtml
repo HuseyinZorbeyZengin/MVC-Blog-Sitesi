@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <br />
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Anasayfa</li>
+            </ol>
+        </nav>
+        <div class="col-md-3">
+            <div class="img-thumbnail" style="background-color:#fcffc3">
+                <img src="~/Content/img/list.png" style="width: 200px; display: block; margin-left: auto; margin-right: auto;" />
+                <a href="/Admin/YazarListesi" class="btn btn-primary">Tüm Makeleler Listesi <span class="badge bg-secondary">@ViewBag.sayi</span></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="img-thumbnail" style="background-color:#fcffc3">
+                <img src="~/Content/img/todo-list.png" style="width:200px; display:block; margin-left:auto; margin-right:auto;" />
+                <a href="/Admin/OnayListesi" class="btn btn-success">Onaylanmış Makeleler Listesi <span class="badge bg-secondary">@ViewBag.onaylanmis</span></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="img-thumbnail" style="background-color:#fcffc3">
+                <img src="~/Content/img/list.png" style="width:200px; display:block; margin-left:auto; margin-right:auto;" />
+                <a href="/Admin/OnaysızListesi" class="btn btn-danger">Onaylanmamış Makeleler Listesi <span class="badge bg-secondary">@ViewBag.onaylanmamis</span></a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="img-thumbnail" style="background-color:#fcffc3">
+                <img src="~/Content/img/list.png" style="width: 200px; display: block; margin-left: auto; margin-right: auto;" />
+                <a href="/Kategori/Index" class="btn btn-success">Konu Listesi</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+

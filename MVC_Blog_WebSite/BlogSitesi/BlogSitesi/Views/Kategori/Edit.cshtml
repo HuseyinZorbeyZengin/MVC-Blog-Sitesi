@@ -1,0 +1,43 @@
+﻿@model BlogSitesi.Models.Kategori
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="container">
+    <br />
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Konu Güncelle</li>
+            </ol>
+        </nav>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    <h5> @Html.LabelFor(model => model.KategoriAdi, "Konu Adı", htmlAttributes: new { @class = "control-label col-md-2" })</h5>
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.KategoriAdi, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.KategoriAdi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-outline-success"><i class="bi bi-arrow-up-circle-fill"></i> Güncelle</button>
+                        <a href="/Kategori/Index" class="btn btn-outline-warning"><i class="bi bi-card-list"></i> Konu Listesi</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
